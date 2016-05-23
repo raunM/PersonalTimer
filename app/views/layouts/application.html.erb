@@ -23,11 +23,14 @@
           <ul class="nav navbar-nav navbar-right">
             <button class="btn btn-primary" type="button">Login</button>
             <li><%= link_to "View Logs", timelogs_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path(@user) %></li>
           </ul>
         </div>
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

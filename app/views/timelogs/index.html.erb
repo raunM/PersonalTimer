@@ -15,7 +15,7 @@
   <tbody>
     <% @time_logs.each do |log| %>
       <tr>
-        <td><%= link_to 'Delete', timelogs_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Delete', timelog_path(log), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         <td><%= log.created_at.to_date %></td>
         <td><%= log.description %></td>
         <td><%= log.timespent %> minutes</td>
