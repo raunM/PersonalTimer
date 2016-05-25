@@ -14,10 +14,10 @@
   </thead>
 
   <tbody>
-    <% @time_logs.each do |log| %>
+    <% @timelogs.each do |log| %>
       <tr>
         <% if log.user == current_user %>
-          <td><%= link_to 'Delete', timelog_path(log), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          <td><%= link_to 'Delete', user_timelog_path(current_user, log), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
           <td><%= log.created_at.to_date %></td>
           <td><%= log.description %></td>
           <td><%= log.timespent %> minutes</td>

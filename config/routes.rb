@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-    devise_for :users do
-      get'users/sign_out'=>'devise/sessions#destroy'
-    end
+    devise_for :users, controllers: {registrations: 'users/registrations' }
     resources :users do
-      resources :timelog
+      resources :timelogs
     end
     root 'timelogs#home'
 end

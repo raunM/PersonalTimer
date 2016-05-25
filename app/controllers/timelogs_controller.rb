@@ -5,39 +5,41 @@ class TimelogsController < ApplicationController
     end
 
     def index
-        @time_logs = TimeLog.all
+        @timelogs = TimeLog.all
     end
-    
+    def show
+        
+    end
     def new
-        @timelog = TimeLog.new
-        #@timelog = current_user.time_logs.build(log_params)
+        @user = User.find(params[:user_id])
+        #@timelogs = @user.timelogs.build
     end
     
-    def create
-        #@timelog = TimeLog.new(log_params)
-        @timelog = current_user.time_logs.build(log_params)
-        respond_to do |format|
-          if @timelog.save
-            format.html { redirect_to @timelog, notice: 'Post was successfully created.' }
-            format.json { render :show, status: :created, location: @timelog }
-          else
-            format.html { render :new }
-            format.json { render json: @timelog.errors, status: :unprocessable_entity }
-          end
-        end
-    end
+    # def create
+    #     #@timelog = TimeLog.new(log_params)
+    #     @timelog = current_user.time_logs.build(log_params)
+    #     respond_to do |format|
+    #       if @timelog.save
+    #         format.html { redirect_to @timelog, notice: 'Post was successfully created.' }
+    #         format.json { render :show, status: :created, location: @timelog }
+    #       else
+    #         format.html { render :new }
+    #         format.json { render json: @timelog.errors, status: :unprocessable_entity }
+    #       end
+    #     end
+    # end
     
     def destroy
         @timelog.destroy
         respond_to do |format|
-            format.html { redirect_to timelogs_url, notice: 'Post was successfully destroyed.' }
+            format.html { redirect_to user_timelog_url, notice: 'Post was successfully destroyed.' }
             format.json { head :no_content }
         end
     end
     
     private
         def set_log
-            @timelog = TimeLog.find(params[:id])
+            @timelog = current_user.time_logs.find_by_user_id(params[:user_id])
         end
     
         def log_params
