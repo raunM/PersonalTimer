@@ -1,6 +1,6 @@
 class TimelogsController < ApplicationController
     before_action :set_log, only: [:destroy]
-    before_action :authenticate_user!, except: [:home]
+    #before_action :authenticate_user!, except: [:home]
     def home
     end
 
@@ -10,24 +10,24 @@ class TimelogsController < ApplicationController
     def show
         
     end
+
     def new
         @user = User.find(params[:user_id])
-        #@timelogs = @user.timelogs.build
+        @timelog = @user.time_logs.build
     end
     
-    # def create
-    #     #@timelog = TimeLog.new(log_params)
-    #     @timelog = current_user.time_logs.build(log_params)
-    #     respond_to do |format|
-    #       if @timelog.save
-    #         format.html { redirect_to @timelog, notice: 'Post was successfully created.' }
-    #         format.json { render :show, status: :created, location: @timelog }
-    #       else
-    #         format.html { render :new }
-    #         format.json { render json: @timelog.errors, status: :unprocessable_entity }
-    #       end
-    #     end
-    # end
+    def create
+        #@timelog = current_user.time_logs.build(log_params)
+        @user = User.find(params[:user_id])
+        @timelog = @user.time_logs.build(log_params)
+        
+        if @timelog.save
+            flash[:success] = "TIMELOG SAVED"
+            redirect_to new_user_timelog_path
+        else
+            render action: :new
+        end
+    end
     
     def destroy
         @timelog.destroy
@@ -43,7 +43,7 @@ class TimelogsController < ApplicationController
         end
     
         def log_params
-          params.require(:timelog).permit(:description, :timespent)
+          params.require(:time_log).permit(:description, :timespent)
         end
 
 end
