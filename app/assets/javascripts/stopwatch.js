@@ -1,3 +1,4 @@
+var h, m, s, ms;
 var	clsStopwatch = function() {
 	// Private vars
 	var	startAt	= 0;	// Time of last start / resume. (0 if not running)
@@ -41,7 +42,7 @@ function pad(num, size) {
 }
 
 function formatTime(time) {
-	var h = m = s = ms = 0;
+	h, m, s, ms = 0;
 	var newTime = '';
 
 	h = Math.floor( time / (60 * 60 * 1000) );
@@ -56,12 +57,12 @@ function formatTime(time) {
 }
 
 function show() {
-	$time = document.getElementById('time');
+	$time = document.getElementById('time_log_timespent');
 	update();
 }
 
 function update() {
-	$time.innerHTML = formatTime(x.time());
+	$time.value = formatTime(x.time());
 }
 
 function start() {
@@ -72,10 +73,4 @@ function start() {
 function stop() {
 	x.stop();
 	clearInterval(clocktimer);
-}
-
-function reset() {
-	stop();
-	x.reset();
-	update();
 }

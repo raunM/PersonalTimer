@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'stopwatch', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body onload="show()" id="grad";>
   <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class='container'>
       <div class="navbar-header">
@@ -19,6 +19,9 @@
         </button>
       </div>
       <div class="collapse navbar-collapse" id="main-nav-collapse">
+        <div class="nav navbar-nav navbar-left">
+          <li><%= link_to "Home", root_path %></li>
+        </div>
         <div class="nav navbar-nav navbar-right">
           <ul class="nav navbar-nav navbar-right">
             <% if !user_signed_in? %>

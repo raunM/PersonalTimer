@@ -17,12 +17,11 @@ class TimelogsController < ApplicationController
     end
     
     def create
-        #@timelog = current_user.time_logs.build(log_params)
         @user = User.find(params[:user_id])
         @timelog = @user.time_logs.build(log_params)
         
         if @timelog.save
-            flash[:success] = "TIMELOG SAVED"
+            #flash[:success] = "TIMELOG SAVED"
             redirect_to new_user_timelog_path
         else
             render action: :new
@@ -32,7 +31,7 @@ class TimelogsController < ApplicationController
     def destroy
         @timelog.destroy
         respond_to do |format|
-            format.html { redirect_to user_timelog_url, notice: 'Post was successfully destroyed.' }
+            format.html { redirect_to user_timelogs_path, notice: 'Timelog was successfully destroyed.' }
             format.json { head :no_content }
         end
     end

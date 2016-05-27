@@ -1,8 +1,8 @@
-<div class="jumbotron text-center">
+<div class="text-center">
   <h1>Time Log</h1>
 </div>
 
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th></th>
@@ -20,7 +20,7 @@
           <td><%= link_to 'Delete', user_timelog_path(current_user, log), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
           <td><%= log.created_at.to_date %></td>
           <td><%= log.description %></td>
-          <td><%= log.timespent %> minutes</td>
+          <td><%= log.timespent %></td>
         <% end %>
       </tr>
     <% end %>
