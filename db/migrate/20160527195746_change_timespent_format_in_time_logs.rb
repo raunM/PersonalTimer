@@ -1,4 +1,4 @@
-class ChangeTimespentFormatInTimeSpent < ActiveRecord::Migration
+class ChangeTimespentFormatInTimeLogs < ActiveRecord::Migration
   def up
     change_column :time_logs, :timespent, :string
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527051436) do
+ActiveRecord::Schema.define(version: 20160527195746) do
 
   create_table "time_logs", force: true do |t|
     t.text     "description"
