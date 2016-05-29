@@ -38,7 +38,7 @@ class TimelogsController < ApplicationController
     
     private
         def set_log
-            @timelog = current_user.time_logs.find_by_user_id(params[:user_id])
+            @timelog = current_user.time_logs.find(params[:id])
         end
     
         def log_params
