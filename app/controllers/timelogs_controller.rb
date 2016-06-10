@@ -1,14 +1,10 @@
 class TimelogsController < ApplicationController
     before_action :set_log, only: [:destroy]
-    #before_action :authenticate_user!, except: [:home]
     def home
     end
 
     def index
         @timelogs = TimeLog.all
-    end
-    def show
-        
     end
 
     def new
@@ -21,7 +17,6 @@ class TimelogsController < ApplicationController
         @timelog = @user.time_logs.build(log_params)
         
         if @timelog.save
-            #flash[:success] = "TIMELOG SAVED"
             redirect_to new_user_timelog_path
         else
             render action: :new
