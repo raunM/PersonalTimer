@@ -3,21 +3,16 @@ class TimelogsController < ApplicationController
     def home
     end
     
-    #def index
-    #end
-    
     def index
-        @timelogs = current_user.time_logs
+        @timelogs = current_user.time_logs.order("created_at DESC")
     end
 
     def new
-        @user = User.find(params[:user_id])
-        @timelog = @user.time_logs.build
+        @timelog = current_user.time_logs.build
     end
     
     def create
-        @user = User.find(params[:user_id])
-        @timelog = @user.time_logs.build(log_params)
+        @timelog = current_user.time_logs.build(log_params)
         
         if @timelog.save
             redirect_to new_user_timelog_path
