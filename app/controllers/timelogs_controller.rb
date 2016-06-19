@@ -2,9 +2,12 @@ class TimelogsController < ApplicationController
     before_action :set_log, only: [:destroy]
     def home
     end
-
+    
+    #def index
+    #end
+    
     def index
-        @timelogs = TimeLog.all
+        @timelogs = current_user.time_logs
     end
 
     def new
