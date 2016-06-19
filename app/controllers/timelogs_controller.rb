@@ -1,5 +1,6 @@
 class TimelogsController < ApplicationController
     before_action :set_log, only: [:destroy]
+    before_action :authenticate_user!, only: [:index, :new]
     def home
     end
     
@@ -28,7 +29,7 @@ class TimelogsController < ApplicationController
             format.json { head :no_content }
         end
     end
-    
+
     private
         def set_log
             @timelog = current_user.time_logs.find(params[:id])
