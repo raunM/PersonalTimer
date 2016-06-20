@@ -1,20 +1,22 @@
-<div class="col-md-2 col-md-offset-5">
-  <%= form_for @timelog, url: user_timelogs_path do |f| %>
-  
-    <div class="field form-group">
-      <%= f.label :description %>
-      <%= f.text_field :description, class: "form-control" %>
-    </div>
-    <div class="field form-group">
-      <%= f.label :category %>
-      <%= f.text_field :category, class: "form-control" %>
-    </div>
-    <div class="field form-group">
-      <%= f.label :timespent %>
-      <%= f.text_field :timespent, class: "form-control" %>
-    </div>
-    <%= f.submit 'Save', class: "btn btn-primary" %>
-  <% end %>
-  <input class="btn btn-success hvr-push" type="button" value="start" onclick="start();">
-  <input class="btn btn-danger" type="button" value="stop" onclick="stop();">
+<div class="text-center">
+  <div class="col-md-2 col-md-offset-5">
+    <%= form_for @timelog, url: user_timelogs_path do |f| %>
+    
+      <div class="field form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :category %>
+        <%= f.text_field :category, class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :timespent %>
+        <%= f.text_field :timespent, class: "form-control" %>
+      </div>
+      <%= f.submit 'Save', class: "btn btn-primary" %>
+    <% end %>
+    <input class="btn btn-success hvr-push" type="button" value="start" onclick="start();">
+    <input class="btn btn-danger" type="button" value="stop" onclick="stop();">
+  </div>
 </div>

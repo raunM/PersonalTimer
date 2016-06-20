@@ -1,28 +1,32 @@
-<h1>Time Log</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Date</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>Time Spent</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @timelogs.each do |log| %>
-      <tr>
-        <td><%= link_to 'Delete', user_timelog_path(current_user, log), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-        <td><%= log.created_at.to_date %></td>
-        <td><%= log.category %></td>
-        <td><%= log.description %></td>
-        <td><%= log.timespent %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="text-center">
+  <h1>Time Logs</h1>
+  <br>
+</div>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Time Spent</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @timelogs.each do |log| %>
+          <tr>
+            <td><%= link_to 'Delete', user_timelog_path(current_user, log), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+            <td><%= log.created_at.to_date %></td>
+            <td><%= log.category %></td>
+            <td><%= log.description %></td>
+            <td><%= log.timespent %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
