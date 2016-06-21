@@ -80,7 +80,8 @@ function formatTime(time) {
 }
 
 function show() {
-	$time = document.getElementById('time_log_timespent');
+	$time = document.getElementById('timelog_timespent');
+	//$time.style.color = "blue";
 	update();
 }
 
