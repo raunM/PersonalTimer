@@ -48,7 +48,7 @@ class TimelogsController < ApplicationController
   end
 
   def log_params
-    if params[:action] == "new"
+    if params[:action] == "create"
       params.require(:timelog).permit(:description, :timespent, :category)
     else
       params.require(:timelog).permit(:description, :category)
