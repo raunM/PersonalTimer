@@ -1,0 +1,23 @@
+<%= javascript_include_tag "stopwatch" %>
+<div class="col-md-2 col-md-offset-5">
+  <%= simple_form_for ([current_user, @timelog]) do |f| %>
+    <div class="field form-group">
+      <%= f.input :description %>
+    </div>
+    <div class="field form-group">
+      <%= f.input :category %>
+    </div>
+    <% if current_page?(controller: 'timelogs', action: 'new') %>
+      <div class="field form-group">
+        <%= f.input :timespent %>
+      </div>
+    <% end %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+  <% if current_page?(controller: 'timelogs', action: 'new') %>
+    <input class="btn btn-success hvr-push" type="button" value="start" onclick="start();">
+    <input class="btn btn-danger" type="button" value="stop" onclick="stop();">
+  <% end %>
+</div>

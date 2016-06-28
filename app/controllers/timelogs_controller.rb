@@ -3,7 +3,7 @@ class TimelogsController < ApplicationController
     before_action :authenticate_user!, only: [:index, :new]
     def home
     end
-    
+
     def index
         @timelogs = current_user.timelogs.order("created_at DESC")
     end
@@ -13,26 +13,26 @@ class TimelogsController < ApplicationController
     end
 
     def create
-        @timelog = current_user.timelogs.build(log_params)
-        
+        @timelog = current_user.timelogs.build(create_params)
+
         if @timelog.save
             redirect_to new_user_timelog_path
         else
             render action: :new
         end
     end
-    
+
     def edit
     end
-    
+
     def update
-        if @timelog.update(log_params)
+        if @timelog.update(up_params)
             redirect_to user_timelogs_path
         else
             render action: :new
         end
     end
-    
+
     def destroy
         @timelog.destroy
         respond_to do |format|
@@ -42,13 +42,17 @@ class TimelogsController < ApplicationController
     end
 
     private
-        
+
         def set_log
             @timelog = current_user.timelogs.find(params[:id])
         end
-    
-        def log_params
+
+        def create_params
           params.require(:timelog).permit(:description, :timespent, :category)
+        end
+
+        def up_params
+          params.require(:timelog).permit(:description, :category)
         end
 
 end

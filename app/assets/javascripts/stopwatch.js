@@ -20,7 +20,6 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.*/
-
 var h, m, s, ms;
 var	clsStopwatch = function() {
 	// Private vars
@@ -28,8 +27,8 @@ var	clsStopwatch = function() {
 	var	lapTime	= 0;	// Time on the clock when last stopped in milliseconds
 
 	var	now	= function() {
-		return (new Date()).getTime(); 
-	}; 
+		return (new Date()).getTime();
+	};
 
 	// Public methods
 	// Start or resume
@@ -51,7 +50,7 @@ var	clsStopwatch = function() {
 
 	// Duration
 	this.time = function() {
-		return lapTime + (startAt ? now() - startAt : 0); 
+		return lapTime + (startAt ? now() - startAt : 0);
 	};
 };
 
@@ -98,3 +97,4 @@ function stop() {
 	x.stop();
 	clearInterval(clocktimer);
 }
+window.onload = show();
