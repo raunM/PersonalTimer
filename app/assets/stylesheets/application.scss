@@ -10,21 +10,23 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- * Licensed under the MIT License (https://opensource.org/licenses/mit-license.php) 
+ * Licensed under the MIT License (https://opensource.org/licenses/mit-license.php)
  */
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 #grad {
-    background: rgba(188,22,16,1);
-    background: -moz-linear-gradient(left, rgba(188,22,16,1) 0%, rgba(172,15,6,0.83) 43%, rgba(153,12,10,0.71) 75%, rgba(153,8,6,0.68) 82%, rgba(150,12,12,0.65) 91%, rgba(147,16,18,0.65) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(188,22,16,1)), color-stop(43%, rgba(172,15,6,0.83)), color-stop(75%, rgba(153,12,10,0.71)), color-stop(82%, rgba(153,8,6,0.68)), color-stop(91%, rgba(150,12,12,0.65)), color-stop(100%, rgba(147,16,18,0.65)));
-    background: -webkit-linear-gradient(left, rgba(188,22,16,1) 0%, rgba(172,15,6,0.83) 43%, rgba(153,12,10,0.71) 75%, rgba(153,8,6,0.68) 82%, rgba(150,12,12,0.65) 91%, rgba(147,16,18,0.65) 100%);
-    background: -o-linear-gradient(left, rgba(188,22,16,1) 0%, rgba(172,15,6,0.83) 43%, rgba(153,12,10,0.71) 75%, rgba(153,8,6,0.68) 82%, rgba(150,12,12,0.65) 91%, rgba(147,16,18,0.65) 100%);
-    background: -ms-linear-gradient(left, rgba(188,22,16,1) 0%, rgba(172,15,6,0.83) 43%, rgba(153,12,10,0.71) 75%, rgba(153,8,6,0.68) 82%, rgba(150,12,12,0.65) 91%, rgba(147,16,18,0.65) 100%);
-    background: linear-gradient(to right, rgba(188,22,16,1) 0%, rgba(172,15,6,0.83) 43%, rgba(153,12,10,0.71) 75%, rgba(153,8,6,0.68) 82%, rgba(150,12,12,0.65) 91%, rgba(147,16,18,0.65) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc1610', endColorstr='#931012', GradientType=1 );
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d7e7d+0,0e0e0e+100;Black+3D */
+  background: #7d7e7d; /* Old browsers */
+  background: -moz-linear-gradient(left,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #7d7e7d 0%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 */
+}
+
+h1, h3, label, th, td {
+  color: white;
 }
 
 @-webkit-keyframes hvr-push {
