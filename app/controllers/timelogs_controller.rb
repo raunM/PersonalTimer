@@ -1,6 +1,7 @@
 class TimelogsController < ApplicationController
   before_action :set_log, only: [:destroy, :edit, :update]
   before_action :authenticate_user!, except: [:home]
+
   def home
   end
 
@@ -43,16 +44,16 @@ class TimelogsController < ApplicationController
 
   private
 
-  def set_log
-    @timelog = current_user.timelogs.find(params[:id])
-  end
-
-  def log_params
-    if params[:action] == "create"
-      params.require(:timelog).permit(:description, :timespent, :category)
-    else
-      params.require(:timelog).permit(:description, :category)
+    def set_log
+      @timelog = current_user.timelogs.find(params[:id])
     end
-  end
+
+    def log_params
+      if params[:action] == "create"
+        params.require(:timelog).permit(:description, :timespent, :category)
+      else
+        params.require(:timelog).permit(:description, :category)
+      end
+    end
 
 end
