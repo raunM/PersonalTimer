@@ -1,7 +1,5 @@
 == README
 
-Personal Timer is currently running on Heroku at http://infinite-harbor-26793.herokuapp.com
-
 Create an account and start saving time logs along with a category and description of any work you may be doing.
 
 
